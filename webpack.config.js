@@ -9,6 +9,28 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json']
   },
+  optimization: {
+    splitChunks: {
+      chunks: 'async', 
+      minSize: 30000,
+      maxSize: 0,
+      minChunks: 1,
+      maxAsyncRequests: 3,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vue: {
+          test: /[\\/]node_modules[\\/](vue)[\\/]/,
+          name: 'vue'
+        },
+        vue_router: {
+          test: /[\\/]node_modules[\\/](vue-router)[\\/]/,
+          name: 'vue-router'
+        }
+      }
+    }
+  },
   plugins: [
     new CleanWebpackPlugin({
       cleanAfterEveryBuildPatterns: ['dist']
@@ -25,6 +47,7 @@ module.exports = {
   ],
   output: {
     filename: 'js/[name].[chunkhash].js',
+    chunkFilename: 'js/[name].[chunkhash].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: './'
   },

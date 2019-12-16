@@ -1,13 +1,6 @@
-import _ from './lib/lodash';
-import './css/style.css'
-
-function component() {
-  var element = document.createElement('div')
-
-  element.innerHTML = _.join(['Hello', 'webpack']);
-  element.classList.add('hello');
-
-  return element;
-}
-
-document.body.appendChild(component())
+import("./lib/a");
+// import("./lib/b");
+// import("./lib/c");
+// import("./lib/d");
+// import("./lib/e");
+// import("./lib/f");
