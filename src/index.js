@@ -1,5 +1,6 @@
+// import a from './lib/a'
 import("./lib/a");
-// import("./lib/b");
+import("./lib/b");
 // import("./lib/c");
 // import("./lib/d");
 // import("./lib/e");
